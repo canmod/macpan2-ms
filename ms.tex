@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\input{preamble}
+
+\title{The solution to everything}
+\author{So-and-so$^1$ and David J.\,D.\ Earn$^2$\\
+  $^1$Such-and-such University;\\
+  $^2$Department of Mathematics and Statistics,\\
+  McMaster University, Hamilton, Ontario, Canada, L8S 4K1
+  \\ 
+  \medskip
+  \spewmoddates
+}
+
+
+
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+\maketitle
+
+\linenumbers
+
+\begin{abstract}
+  We solve everything.  We do it clearly, concisely, and completely.
+  It is not obvious what we should do next.
+\end{abstract}
+
+%%\begin{keywords}
+%%epidemics, SIR model, \dots
+%%\end{keywords}
+
+%%\begin{MSCcodes}
+%%34E05, 34E13, 37N25, 92D30
+%%\end{MSCcodes}
+
+\section{Introduction}\label{sec:intro}
+
+Nobody has solved everything before.
+Now is the time.
+
+\section{Methods}\label{sec:methods}
+
+This is how to solve everything:
+
+Many \LaTeX\ packages and macros are loaded when you
+\verb|\input{preamble.tex}|, which is done in \texttt{ms.tex}.
+
+Rather than \macro{ref} or \macro{eqref}, use \macro{cref} (from the
+\texttt{cleveref} package) for referring to equations, figures,
+sections, appendices.  For example, use \verb|\cref{sec:results}| to
+get \cref{sec:results} and \verb|\cref{eq:everything,fig:everything,app:ToDo}|
+to get \cref{eq:everything,fig:everything,app:ToDo}.
+
+Use \macro{linenumbers} to get line numbers, and comment out this
+command if you don't want line numbers.  To ensure you get line numbers
+in paragraphs that include an \texttt{align} environment, enclose in a
+\verb|linenomath*| environment like so:
+\begin{verbatim}
+\begin{linenomath*}
+\begin{align}\label{eq:everything}
+  U = 0,
+\end{align}
+\end{linenomath*}
+\end{verbatim}
+This example generated \cref{eq:everything} below.
+
+\subsection{Fancy symbols}
+
+\david{This subsection is in progress\dots}
+
+Developing good notation is often a serious challenge.
+For example, \cite{ParsEarn24} used $\Xyb{0}{i}(y)$ for
+an approximation to $X(y)$ within the $y$-axis
+boundary layer.  The \texttt{scalerel} package is very helpful
+for constructing complicated symbols in a way that scales
+appropriately
+when they are used in subscripts.   The macros used
+in \cite{ParsEarn24} produced $A_{\Xyb{0}{i}}$, whereas
+using the \macro{scaleobj} macro from \texttt{scalerel} yields
+$A_{\Xybfancy{0}{i}}$ $A_{\Xybfancy{\Xybfancy{0}{i}}{i}}$
+$A_{\Xybfancy{\scaleobj{0.8}{\Xybfancy{0}{i}}}{i}}$
+
+\newcommand{\tmpout}{{x_{A}}}
+\begin{equation}
+\tmpout_{\tmpout_{\tmpout_{\tmpout}}}
+\end{equation}
+\renewcommand{\tmpout}{{x_{\scaleobj{0.8}{A}}}}
+\begin{equation}
+\tmpout_{\tmpout_{\tmpout_{\tmpout}}}
+\end{equation}
+
+\section{Results}\label{sec:results}
+
+The complete equation for everything is
+\begin{linenomath*}
+\begin{align}\label{eq:everything}
+  U = 0,
+\end{align}
+\end{linenomath*}
+where $U$ is for ``universe''.  This equation is illustrated
+in \cref{fig:everything}.  Remarkably, it does not depend on $\R_0$,
+at least not explicitly.  Even more remarkably, \cref{eq:everything}
+was not mentioned in some mathematical epidemiology review articles
+\cite{Earn+02,Earn04,Earn08,Earn09}.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{a} \hlkwb{<-} \hlkwd{sqrt}\hlstd{(}\hlnum{2}\hlopt{*}\hlstd{pi)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+\begin{figure}
+  \begin{center}
+    \Huge EVERYTHING
+    %%\includegraphics[width=0.95\textwidth]{fig_everything.pdf}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/example.figure-1} 
+\end{knitrout}
+  \end{center}
+  \caption{This figure illustrates \cref{eq:everything}.}
+  \label{fig:everything}
+\end{figure}
+
+Note that $\sqrt{2\pi}=2.5066283$ as calculated in the 
+\texttt{example.calculation} chunk above.  You can supress
+the chunk in the typeset document with the chunk option
+\texttt{echo=FALSE}.
+
+\section{Discussion}\label{sec:discussion}
+
+Everything is explained by \cref{eq:everything,fig:everything}.
+
+\section*{Acknowledgements}
+
+DJDE was supported by an NSERC Discovery Grant.
+
+\bibliography{ms}
+\bibliographystyle{vancouver}
+
+%%\input{mstables}
+
+%%\FloatBarrier
+
+%%\input{msfigures}
+
+\appendix
+
+\section{To Do}\label{app:ToDo}
+
+\begin{itemize}
+\item appendices
+\item tables
+\item Rnw
+\item journal templates
+\end{itemize}
+
+\end{document}
