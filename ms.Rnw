@@ -2,12 +2,12 @@
 
 \input{preamble}
 
-\title{The solution to everything}
-\author{So-and-so$^1$ and David J.\,D.\ Earn$^2$\\
+\title{McMasterPandemic: Lessons for Software Development from the COVID-19 Pandemic (TODO: working title)}
+\author{Jonathan Dushoff$^1$ \and Benjamin M. Bolker$^2$ \and David J.\,D.\ Earn$^2$ \and Michael Li \and Irena Papst \and (TODO: others) \and Steve C Walker$^2$ (TODO: order is currently a placeholder) \\
   $^1$Such-and-such University;\\
   $^2$Department of Mathematics and Statistics,\\
   McMaster University, Hamilton, Ontario, Canada, L8S 4K1
-  \\ 
+  \\
   \medskip
   \spewmoddates
 }
@@ -37,8 +37,7 @@ options(warnPartialMatchArgs = FALSE,
 \linenumbers
 
 \begin{abstract}
-  We solve everything.  We do it clearly, concisely, and completely.
-  It is not obvious what we should do next.
+  TBD
 \end{abstract}
 
 %%\begin{keywords}
@@ -51,8 +50,11 @@ options(warnPartialMatchArgs = FALSE,
 
 \section{Introduction}\label{sec:intro}
 
-Nobody has solved everything before.
-Now is the time.
+The \texttt{McMasterPandemic} compartmental model and associated \texttt{R} package were developed to provide forecasts and insights to public health agencies throughout the COVID-19 pandemic. Much was learned about developing general purpose compartmental modelling software during this experience, but the pressure to deliver regular forecasts made it difficult to focus on the software itself. Here we describe the \texttt{macpan2} package -- a re-imagining of \texttt{McMasterPandemic}, building it from the ground up with architectural and technological decisions that address the many lessons that we learned from COVID-19 about software.
+
+Impactful applied public health modelling requires many interdisciplinary steps along the path from epidemiological research teams to operational decision makers. Researchers must quickly tailor a model to an emerging public-health concern, validate and calibrate it to data, work with decision makers to define model outputs useful for stakeholders, configure models to generate those outputs, and package up those insights in an appropriate format for stakeholders. Unlike traditional modelling approaches, \texttt{macpan2} tackles this challenge from a software-engineering perspective, which allows us to systematically address bottlenecks along this path to impact in ways that will make future solutions easier to achieve. The goal is to enable researchers to focus on their core strengths and fill knowledge gaps efficiently and effectively.
+
+Although \texttt{macpan2} is designed as a compartmental modelling tool that is agnostic about the underlying computational engine, it currently uses template model builder as the sole engine. Template model builder (TMB) is an R modelling package based on a C++ framework incorporating mature automatic differentiation and matrix algebra libraries.
 
 \section{Methods}\label{sec:methods}
 
@@ -121,7 +123,7 @@ was not mentioned in some mathematical epidemiology review articles
 
 <<example.calculation>>=
 a <- sqrt(2*pi)
-@ 
+@
 
 \begin{figure}
   \begin{center}
@@ -129,13 +131,13 @@ a <- sqrt(2*pi)
     %%\includegraphics[width=0.95\textwidth]{fig_everything.pdf}
 <<example.figure, echo=FALSE, fig.height=3>>=
 curve(sin(2*pi*x), lwd=3, las=1)
-@ 
+@
   \end{center}
   \caption{This figure illustrates \cref{eq:everything}.}
   \label{fig:everything}
 \end{figure}
 
-Note that $\sqrt{2\pi}=\Sexpr{a}$ as calculated in the 
+Note that $\sqrt{2\pi}=\Sexpr{a}$ as calculated in the
 \texttt{example.calculation} chunk above.  You can supress
 the chunk in the typeset document with the chunk option
 \texttt{echo=FALSE}.
