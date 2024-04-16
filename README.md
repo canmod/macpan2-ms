@@ -21,3 +21,7 @@ folder, hence the symbolic link to the place it actually lives.
 
 - [Creating .bib file containing only the cited references of a bigger .bib file](https://tex.stackexchange.com/questions/41821/creating-bib-file-containing-only-the-cited-references-of-a-bigger-bib-file)
 
+
+## PLoS
+
+Targeting PLoS Computational Biology.  [Here's](https://journals.plos.org/ploscompbiol/s/latex) a latex template for PLoS journals.  Not sure how to merge this info with David's `Rnw` template.  Maybe just give up on `Rnw`?
